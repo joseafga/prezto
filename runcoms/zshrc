@@ -59,4 +59,4 @@ export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
 # added by travis gem
-[ -f /home/jose/.travis/travis.sh ] && source /home/jose/.travis/travis.sh
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
