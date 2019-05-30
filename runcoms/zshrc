@@ -11,3 +11,52 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Set dynamic terminal title
+if [[ "$TERM" =~ 'vte*|xterm*|rxvt*' ]]; then
+  title='\e];$PWD\a'
+
+  # function which is executed whenever the directory is changed
+  chpwd() {
+    print -Pn "$title"
+  }
+
+  # initial title
+  print -Pn "$title"
+fi
+
+# Aliases
+source $HOME/.aliases
+
+# Completion
+setopt COMPLETE_ALIASES
+
+# some options
+export DEFAULT_USER="$USER"
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+
+# Editor and Pager
+export EDITOR=nano
+export VISUAL=kate
+export PAGER=less
+
+# REMOVE Qt Warnings from journal
+# export QT_LOGGING_RULES='*.debug=false'
+export QT_LOGGING_RULES='*=false'
+
+# composer env (laravel, gulp)
+export PATH=~/.composer/bin:~/.composer/vendor/bin:$PATH
+# ruby env
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+eval "$(rbenv init -)"
+# python env
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --python=/usr/bin/python3'
+source /usr/bin/virtualenvwrapper.sh
+# node env
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+# added by travis gem
+[ -f /home/jose/.travis/travis.sh ] && source /home/jose/.travis/travis.sh
