@@ -12,51 +12,40 @@ fi
 
 # Customize to your needs...
 
-# Set dynamic terminal title
-if [[ "$TERM" =~ 'vte*|xterm*|rxvt*' ]]; then
-  title='\e];$PWD\a'
+# composer env (laravel, etc)
+export PATH=~/.composer/bin:~/.composer/vendor/bin:$PATH
 
-  # function which is executed whenever the directory is changed
-  chpwd() {
-    print -Pn "$title"
-  }
-
-  # initial title
-  print -Pn "$title"
+# ruby env
+if [[ -d "$HOME/.rbenv" ]]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+  eval "$(rbenv init -)"
 fi
 
-# Aliases
-source $HOME/.aliases
-
-# Completion
-setopt COMPLETE_ALIASES
-
-# some options
-export DEFAULT_USER="$USER"
-export VIRTUAL_ENV_DISABLE_PROMPT=0
-
-# Editor and Pager
-export EDITOR=nano
-export VISUAL=kate
-export PAGER=less
-
-# REMOVE Qt Warnings from journal
-# export QT_LOGGING_RULES='*.debug=false'
-export QT_LOGGING_RULES='*=false'
-
-# composer env (laravel, gulp)
-export PATH=~/.composer/bin:~/.composer/vendor/bin:$PATH
-# ruby env
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-eval "$(rbenv init -)"
 # python env
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --python=/usr/bin/python3'
-source /usr/bin/virtualenvwrapper.sh
+[[ -f '/usr/bin/virtualenvwrapper.sh' ]] && source '/usr/bin/virtualenvwrapper.sh'
+
 # node env
 export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
 # added by travis gem
-[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
+[[ -f "$HOME/.travis/travis.sh" ]] && source "$HOME/.travis/travis.sh"
+
+# Some prompt options
+export DEFAULT_USER="$USER"
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+
+# Aliases
+alias pa='php artisan'
+alias tinker='php artisan tinker'
+alias phpunit='vendor/bin/phpunit'
+
+alias ruby-cli='irb'
+
+alias redis-cli='redis-cli -p 6793'
+
+alias pm='python manage.py'
+alias workin='source env/bin/activate'
