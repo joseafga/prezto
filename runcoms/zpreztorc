@@ -36,8 +36,7 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
-  'pacman'
+  'prompt'
 
 #
 # Autosuggestions
@@ -106,7 +105,7 @@ zstyle ':prezto:module:history-substring-search:color' not-found 'fg=red,bold'
 #
 
 # Set the Pacman frontend.
-zstyle ':prezto:module:pacman' frontend 'yay'
+# zstyle ':prezto:module:pacman' frontend 'yay'
 
 #
 # Prompt
@@ -189,7 +188,7 @@ zstyle ':prezto:module:prompt' theme 'agnos'
 #
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the window title format.
 # zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
