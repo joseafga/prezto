@@ -1,7 +1,7 @@
 
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
-# Agnos theme - https://gist.github.com/joseafga/42c8c0dca26ad02e37cc8e353b6901f0
+# Agnos theme - https://github.com/joseafga/prezto/blob/master/modules/prompt/functions/prompt_agnos_setup
 # Agnoster Theme with my modifications - https://gist.github.com/3712874
 #   A Powerline-inspired theme for ZSH
 #
