@@ -4,19 +4,13 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
-#
-# Editors and Pager
-#
-
+#####################################[ Editors and Pager ]#####################################
 export EDITOR=nano
 export VISUAL=kate
 export PAGER=less
 
-#
-# Paths
-#
 
+##########################################[ PATHS ]###########################################
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -31,10 +25,51 @@ path=(
   $path
 )
 
-#
-# Less
-#
+# composer env (laravel, etc)
+export PATH="$HOME/.composer/bin:$HOME/.composer/vendor/bin:$PATH"
 
+# ruby user gems
+if type -p gem &>/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+# ruby env
+if [[ -d "$HOME/.rbenv" ]]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+# added by travis gem
+[[ -f "$HOME/.travis/travis.sh" ]] && source "$HOME/.travis/travis.sh"
+
+# python env
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --python=/usr/bin/python3'
+[[ -f '/usr/bin/virtualenvwrapper.sh' ]] && source '/usr/bin/virtualenvwrapper.sh'
+
+# node env
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+# Some prompt options
+export DEFAULT_USER="$USER"
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+
+
+##########################################[ ALIASES ]#########################################
+alias pa='php artisan'
+alias tinker='php artisan tinker'
+alias phpunit='vendor/bin/phpunit'
+
+alias ruby-cli='irb'
+
+alias redis-cli='redis-cli -p 6793'
+
+alias pm='python manage.py'
+alias workin='source env/bin/activate'
+
+
+###########################################[ Less ]###########################################
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
@@ -46,10 +81,8 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-#
-# Some others options
-#
 
+####################################[ Some others options ]####################################
 # REMOVE Qt Warnings
 # export QT_LOGGING_RULES='*.debug=false'
 export QT_LOGGING_RULES='*=false'
