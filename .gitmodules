@@ -31,3 +31,6 @@
 [submodule "modules/prompt/external/powerlevel10k"]
 	path = modules/prompt/external/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "modules/fzy/external"]
+	path = modules/fzy/external
+	url = https://github.com/aperezdc/zsh-fzy.git

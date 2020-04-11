@@ -35,6 +35,7 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'history' \
   'history-substring-search' \
+  'fzy' \
   'directory' \
   'spectrum' \
   'utility' \
@@ -95,6 +96,17 @@ zstyle ':prezto:module:history-substring-search:color' not-found 'fg=red,bold'
 
 # Set the search globbing flags.
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
+
+#
+# fzy
+#
+
+# zstyle ':prezto:module:fzy' show-scores yes
+zstyle ':prezto:module:fzy' lines '5'
+zstyle ':fzy:history' prompt $'\e[34;1mhist \e[0m '
+zstyle ':fzy:file' prompt $'\e[34;1mfile \e[0m '
+zstyle ':fzy:cd' prompt $'\e[34;1mcd \e[0m '
+zstyle ':fzy:proc' prompt $'\e[34;1mproc \e[0m '
 
 #
 # macOS
