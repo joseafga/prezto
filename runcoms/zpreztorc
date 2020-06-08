@@ -37,7 +37,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'fzy' \
   'directory' \
-  'spectrum' \
   'utility' \
   'completion' \
   'prompt'
