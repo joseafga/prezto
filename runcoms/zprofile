@@ -68,6 +68,8 @@ alias redis-cli='redis-cli -p 6793'
 alias pm='python manage.py'
 alias workin='source env/bin/activate'
 
+alias docker='podman'
+alias docker-compose='podman-compose'
 
 ###########################################[ Less ]###########################################
 # Set the default Less options.
