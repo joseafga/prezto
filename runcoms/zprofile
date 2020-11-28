@@ -27,9 +27,13 @@ path=(
 )
 
 # add ASDF
-if [[ -d "$HOME/.asdf" ]]; then
-  source "$HOME/.asdf/asdf.sh"
-  fpath=(${ASDF_DIR}/completions $fpath)
+ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+
+if [[ -d "$ASDF_DIR" ]]; then
+  source "$ASDF_DIR/asdf.sh"
+  fpath=("$ASDF_DIR/completions" $fpath)
+  # run compinit
+  autoload -Uz compinit && compinit
 fi
 
 # node env
