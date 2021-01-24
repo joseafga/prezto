@@ -27,14 +27,8 @@ path=(
 )
 
 # add ASDF
-ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
-
-if [[ -d "$ASDF_DIR" ]]; then
-  source "$ASDF_DIR/asdf.sh"
-  fpath=("$ASDF_DIR/completions" $fpath)
-  # run compinit
-  autoload -Uz compinit && compinit
-fi
+export ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+[[ -d "$ASDF_DIR" ]] && source "$ASDF_DIR/asdf.sh"
 
 # node env
 export PATH="$HOME/.node_modules/bin:$PATH"
