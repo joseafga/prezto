@@ -5,8 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 #####################################[ Editors and Pager ]#####################################
-export EDITOR=nano
-export VISUAL=kate
+export EDITOR=vim
+export VISUAL=vim
 export PAGER=less
 
 
