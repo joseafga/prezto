@@ -69,11 +69,14 @@ fi
 
 ####################################[ Some others options ]####################################
 # REMOVE Qt Warnings
-# export QT_LOGGING_RULES='*.debug=false'
+# Export QT_LOGGING_RULES='*.debug=false'
 export QT_LOGGING_RULES='*=false'
 
-# force Krita use default style
+# Force Krita use default style
 export KRITA_NO_STYLE_OVERRIDE=1
+
+# To ignore the whitelist and allow support for other drivers
+export GST_VAAPI_ALL_DRIVERS=1
 
 # Completion
 setopt COMPLETE_ALIASES
