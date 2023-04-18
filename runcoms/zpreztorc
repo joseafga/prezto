@@ -34,13 +34,12 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'history-substring-search' \
-  'fzy' \
   'directory' \
   'utility' \
   'completion' \
   'history-substring-search' \
-  'prompt'
+  'fzy' \
+  'prompt' 
 
 #
 # Autosuggestions

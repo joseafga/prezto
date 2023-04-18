@@ -19,15 +19,9 @@ version is **4.3.11**.
 
 02. Clone the repository:
 
-<<<<<<< HEAD
      ```console
      git clone --recursive https://github.com/joseafga/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
      ```
-=======
-    ```console
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    ```
->>>>>>> upstream/master
 
     <details>
       <summary><em>Optional: Installing in <code>$XDG_CONFIG_HOME</code></em></summary>
