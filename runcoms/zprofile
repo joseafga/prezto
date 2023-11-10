@@ -93,6 +93,10 @@ alias docker-compose='podman-compose'
 # Others
 #
 
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    export MOZ_ENABLE_WAYLAND=1
+fi
+
 # add ASDF
 export ASDF_DIR="$HOME/.asdf"
 [[ -d "$ASDF_DIR" ]] && source "$ASDF_DIR/asdf.sh"
